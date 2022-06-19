@@ -1,0 +1,86 @@
+﻿<Window
+    x:Class="ScreenDimmer.Controls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ScreenDimmer"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Controls"
+    Width="457.236"
+    Height="120.747"
+    ResizeMode="CanMinimize"
+    WindowStartupLocation="Manual"
+    WindowStyle="ThreeDBorderWindow"
+    mc:Ignorable="d">
+    <Window.Background>
+        <SolidColorBrush Opacity="0.5" Color="Black" />
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Margin="10,5"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock
+                Margin="0,0,15,0"
+                FontSize="16"
+                Foreground="White"
+                Text="Opacity:" />
+            <Slider
+                x:Name="OpacitySlider"
+                Width="200"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Maximum="0.8"
+                Minimum="0"
+                ValueChanged="Slider_ValueChanged" />
+            <TextBox
+                x:Name="TextOpacityValue"
+                Margin="10,0"
+                Background="Black"
+                FontSize="16"
+                Foreground="White"
+                Text="{Binding Path=Value, Mode=TwoWay, ElementName=OpacitySlider, StringFormat={}{0:N2}}"
+                TextChanged="TextOpacityValue_TextChanged" />
+            <Button
+                x:Name="ShutdownButton"
+                Background="Black"
+                Click="ShutdownButton_Click"
+                Content="Shutdown"
+                FontSize="16"
+                Foreground="White" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="1"
+            Margin="10,0"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <TextBlock
+                Margin="0,0,15,0"
+                FontSize="16"
+                Foreground="White"
+                Text="Warmth:" />
+            <Slider
+                x:Name="WarmthSlider"
+                Width="200"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                Maximum="1"
+                Minimum="-1"
+                ValueChanged="WarmthSlider_ValueChanged" />
+            <TextBox
+                x:Name="TextWarmthValue"
+                Margin="10,0"
+                Background="Black"
+                FontSize="16"
+                Foreground="White"
+                Text="{Binding Path=Value, Mode=TwoWay, ElementName=WarmthSlider, StringFormat={}{0:N2}}"
+                TextChanged="TextWarmthValue_TextChanged" />
+        </StackPanel>
+    </Grid>
+</Window>
