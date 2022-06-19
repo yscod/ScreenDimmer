@@ -7,9 +7,9 @@ namespace ScreenDimmer
 {
     public partial class MainWindow
     {
-        const byte WARMTHCLR_R_MAX = 16;
-        const byte WARMTHCLR_G_MAX = 8;
-        const byte WARMTHCLR_B_MAX = 4;
+        const byte WARMTHCLR_R_MAX = 64;
+        const byte WARMTHCLR_G_MAX = 32;
+        const byte WARMTHCLR_B_MAX = 16;
 
         public double OpacityValue
         {
@@ -53,7 +53,7 @@ namespace ScreenDimmer
         }
     }
 
-    // Make Window Transparent and ClickThrough: from https://stackoverflow.com/a/3367137
+    // Make Window Transparent and ClickThrough: Courtesy https://stackoverflow.com/a/3367137
     public static class WindowsServices
     {
         const int WS_EX_TRANSPARENT = 0x00000020;

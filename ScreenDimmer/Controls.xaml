@@ -37,7 +37,8 @@
                 VerticalContentAlignment="Center"
                 Maximum="0.8"
                 Minimum="0"
-                ValueChanged="Slider_ValueChanged" />
+                ValueChanged="Slider_ValueChanged"
+                Value="0" />
             <TextBox
                 x:Name="TextOpacityValue"
                 Margin="10,0"
@@ -72,7 +73,8 @@
                 VerticalContentAlignment="Center"
                 Maximum="1"
                 Minimum="-1"
-                ValueChanged="WarmthSlider_ValueChanged" />
+                ValueChanged="WarmthSlider_ValueChanged"
+                Value="0" />
             <TextBox
                 x:Name="TextWarmthValue"
                 Margin="10,0"

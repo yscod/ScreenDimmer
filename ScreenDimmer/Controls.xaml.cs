@@ -10,6 +10,7 @@ namespace ScreenDimmer
 
         public Controls()
         {
+            DataContext = this;
             InitializeComponent();
         }
 
@@ -39,7 +40,12 @@ namespace ScreenDimmer
         {
             try
             {
-                //OpacitySlider.Value = double.Parse(TextOpacityValue.Text);
+                bool isValid = double.TryParse(TextOpacityValue.Text, out double input);
+                if (!isValid || isValid && (input < OpacitySlider.Minimum || input > OpacitySlider.Maximum)) { 
+                    MessageBox.Show($"Value must be in range [{OpacitySlider.Minimum}; {OpacitySlider.Maximum}].");
+                    return;
+                }
+                OpacitySlider.Value = input;
             } catch (Exception) { }
         }
 
@@ -47,7 +53,13 @@ namespace ScreenDimmer
         {
             try
             {
-                //WarmthSlider.Value = double.Parse(TextWarmthValue.Text);
+                bool isValid = double.TryParse(TextWarmthValue.Text, out double input);
+                if (!isValid || isValid && (input < WarmthSlider.Minimum || input > WarmthSlider.Maximum))
+                {
+                    MessageBox.Show($"Value must be in range [{WarmthSlider.Minimum}; {WarmthSlider.Maximum}].");
+                    return;
+                }
+                WarmthSlider.Value = input;
             } catch (Exception) { }
         }
     }
