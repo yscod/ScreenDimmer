@@ -39,11 +39,6 @@ namespace ScreenDimmer
             (Main as MainWindow).WarmthValue = WarmthSlider.Value;
         }
 
-        private bool _isValidOpacity(double value)
-        {
-            return true;
-        }
-
         private void TextOpacityValue_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
