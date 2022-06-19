@@ -10,14 +10,17 @@ namespace ScreenDimmer
 
         public Controls()
         {
-            DataContext = this;
             InitializeComponent();
         }
 
         public Controls(Window main)
         {
-            this.Main = main;
+            DataContext = this;
+            Main = main;
             InitializeComponent();
+            // MouseWheel scrolling, courtesy https://stackoverflow.com/a/42294703
+            OpacitySlider.PreviewMouseWheel += (s, e) => OpacitySlider.Value += e.Delta / 120 * OpacitySlider.SmallChange;
+            WarmthSlider.PreviewMouseWheel += (s, e) => WarmthSlider.Value += e.Delta / 120 * WarmthSlider.SmallChange;
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -34,6 +37,11 @@ namespace ScreenDimmer
         private void WarmthSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             (Main as MainWindow).WarmthValue = WarmthSlider.Value;
+        }
+
+        private bool _isValidOpacity(double value)
+        {
+            return true;
         }
 
         private void TextOpacityValue_TextChanged(object sender, TextChangedEventArgs e)
