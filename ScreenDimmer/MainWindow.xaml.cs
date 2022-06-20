@@ -7,9 +7,9 @@ namespace ScreenDimmer
 {
     public partial class MainWindow
     {
-        const byte WARMTHCLR_R_MAX = 64;
-        const byte WARMTHCLR_G_MAX = 32;
-        const byte WARMTHCLR_B_MAX = 16;
+        const byte WARMTHCLR_R_MAX = 32;
+        const byte WARMTHCLR_G_MAX = 8;
+        const byte WARMTHCLR_B_MAX = 8;
 
         public double OpacityValue
         {
