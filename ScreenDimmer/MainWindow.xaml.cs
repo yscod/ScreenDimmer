@@ -8,8 +8,8 @@ namespace ScreenDimmer
     public partial class MainWindow
     {
         const byte WARMTHCLR_R_MAX = 32;
-        const byte WARMTHCLR_G_MAX = 8;
-        const byte WARMTHCLR_B_MAX = 8;
+        const byte WARMTHCLR_G_MAX = 0;
+        const byte WARMTHCLR_B_MAX = 0;
 
         public double OpacityValue
         {
@@ -34,7 +34,7 @@ namespace ScreenDimmer
             else
             {
                 r = g = 0;
-                b = (byte)(16 * w);
+                b = (byte)(32 * w);
             }
             return Color.FromRgb(r, g, b);
         }
